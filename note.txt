@@ -1,0 +1,5 @@
+The bug happens because your JavaScript directly sets inline styles (nav.style.display and bars.style.display). Inline styles have the highest specificity and persist even after 
+you resize the browser window back to a wider screen, overriding your desktop CSS.
+
+To fix this cleanly, you should toggle CSS classes instead of changing inline styles. When you use classes inside your @media query, resizing the window back to a wider screen 
+automatically ignores those mobile rules, keeping your navbar working perfectly on all screen sizes.
